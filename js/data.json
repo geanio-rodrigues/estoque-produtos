@@ -1,0 +1,31 @@
+{
+    "users": [
+        { "id": 1,
+        "fullname": "Fulano de Tal Silva",
+        "username": "fulanosilva",
+        "password": "fulano1234",
+        "email": "fulano@email.com",
+        "phone" : 88999998888,
+        "role": "Supervisor",
+        "notes" : "Supervisiona o cadastro de produtos novos." }
+    ],
+
+    "products": [
+        { "id": 1,
+        "name": "Pão de Forma",
+        "category": "Padaria",
+        "brand": "Bauducco",
+        "quantity": 8,
+        "purchase_price": 9.00,
+        "supplier_id": 1,
+        "notes": "Pão de forma sabor tradicional, 390g" }
+    ],
+
+    "suppliers": [
+        { "id": 1,
+        "name": "Fornecedor 1",
+        "email": "fornecedor1@email.com",
+        "phone": 889884588888,
+        "notes": "Fornecedor de produtos de padaria, tem o melhor preço atualmente" }
+    ]
+}
