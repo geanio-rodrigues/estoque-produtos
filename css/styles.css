@@ -85,3 +85,12 @@ body {
     align-items: center;
     text-decoration: none;
 }
+
+#logo {
+    width: 50px;
+}
+
+#user-information {
+    list-style: none;
+    color: white;
+}
