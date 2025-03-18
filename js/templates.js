@@ -44,7 +44,7 @@ if (headerContainer.innerHTML === "") {
         username.innerText = "Usuário Desconhecido";
         role.innerText = "Sem Cargo";
     }
-    divider.id  = "divider";
+    divider.className  = "divider";
     navbarRight.className = "navbar-right";
     logout.href = "index.html";
     logout.className = "logout";

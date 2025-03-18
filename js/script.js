@@ -2,15 +2,6 @@ function redirectToDashboard(type) {
     window.location.href = `dashboard.html?type=${type}`;
 }
 
-// Mostrar erros
-function showError(field, msg) {
-    const input = document.getElementById(field);
-    let erroMsg = document.createElement("p");
-    erroMsg.classList.add("error-message");
-    erroMsg.innerText = msg;
-    input.parentNode.appendChild(erroMsg);
-}
-
 // Remover todos os erros antes de validar novamente
 function cleanErrors() {
     document.querySelectorAll(".error-message").forEach(el => el.remove());

@@ -17,20 +17,6 @@ async function validateUser(event) {
     // Coletar os dados
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
-
-    // Validação do username (Apenas letras)
-    const usernameRegex = /^[A-Za-zÀ-ÖØ-öø-ÿ]+$/;
-    if (!usernameRegex.test(username)) {
-        showError("username", "O nome de usuário deve conter apenas letras.");
-        return;
-    }
-
-    // Proteção contra scripts na senha
-    const scriptRegex = /<script.*?>.*?<\/script>/i;
-    if (scriptRegex.test(password)) {
-        showError("password", "Senha inválida! Caracteres suspeitos detectados!");
-        return;
-    }
     
     const data = await getUserData();
 
@@ -42,9 +28,9 @@ async function validateUser(event) {
             localStorage.setItem("userLogged", JSON.stringify(user)); // Salva o usuário logado
             window.location.href = "home.html";
         } else {
-            showError("password", "Senha incorreta.");
+            showMsg("Usuário ou senha incorretos.", "error");
         }
     } else {
-        showError("username", "Usuário não encontrado.");
+        showMsg("Usuário ou senha incorretos.", "error");
     }
 }
