@@ -7,6 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 })
 
+// Impedir que usuário acesse outras páginas sem estar logado
+document.addEventListener("DOMContentLoaded", () => {
+    if(window.location.pathname !== "/index.html" && !localStorage.getItem("userLogged")) {
+        window.location.href = "index.html";
+        alert("Você não tem permissão para acessar essa página!");
+    }
+})
+
 // Validação do usuário
 async function validateUser(event) {
     // Impede o envio do formulário
@@ -34,3 +42,4 @@ async function validateUser(event) {
         showMsg("Usuário ou senha incorretos.", "error");
     }
 }
+

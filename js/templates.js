@@ -46,7 +46,8 @@ if (headerContainer.innerHTML === "") {
     }
     divider.className  = "divider";
     navbarRight.className = "navbar-right";
-    logout.href = "index.html";
+    logout.href = "#";
+    logout.onclick = () => {logoutSystem(event)};
     logout.className = "logout";
     logout.innerText = "Sair ";
     iconLogout.className = "fas fa-power-off";

@@ -27,11 +27,22 @@ async function getUserData() {
 }
 
 function showMsg(message, type) {
-    if(type === "error") {
-        const errorElement = document.getElementById("error-msg");
-        errorElement.textContent = message;
-    } else if(type === "success") {
-        const successElement = document.getElementById("success-msg");
-        successElement.textContent = message;
+    let elementId = type === "error" ? "error-msg" : "success-msg";
+    const messageElement = document.getElementById(elementId);
+
+    if(messageElement) {
+        messageElement.textContent = message;
+        messageElement.style.display = "block"; // Garantir que o bloco da mensagem seja visível
+
+        // Remover a mensagem após 3 segundos
+        setTimeout(() => {
+            messageElement.textContent = "";
+            messageElement.style.display = "none"; // Esconde o bloco da mensagem novamente
+        }, 3000);
     }
+}
+
+function logoutSystem(event) {
+    localStorage.removeItem("userLogged");
+    window.location.href = "index.html";
 }
