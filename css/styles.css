@@ -1,10 +1,7 @@
-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    padding: 20px;
-    flex-grow: 1;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
 }
 
 body {
@@ -14,9 +11,19 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
 /* Login */
 .login-container {
     background-color: #d9d9d9;
+    margin-top: 80px;
     padding: 30px;
     border-radius: 15px;
     text-align: center;
@@ -65,6 +72,7 @@ body {
     padding: 2px;
 }
 
+/* Navbar */
 .navbar {
     display: flex;
     align-items: center;
@@ -76,7 +84,7 @@ body {
 }
 
 .navbar-left {
-    display:flex;
+    display: flex;
     align-items: center;
 }
 
@@ -90,7 +98,107 @@ body {
     width: 50px;
 }
 
-#user-information {
+.navbar-left ul {
     list-style: none;
     color: white;
+}
+
+#role {
+    font-size: 12px;
+}
+
+.divider {
+    width: 10px;
+    height: 85px;
+    background-color: #514A4A;
+}
+
+.navbar-center {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 45%;
+}
+
+.navbar-center a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    padding: 0 10px;
+}
+
+.logout,
+.navbar-item {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 22px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.logout:hover,
+.navbar-item:hover {
+    background-color: white;
+    color: #514A4A;
+}
+
+/* Menu */
+
+.menu-group {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 80px;
+}
+
+.menu-group .btn {
+    background-color: black;
+    color: white;
+    width: 800px;
+    height: 60px;
+    transition: .3s;
+}
+
+.menu-group .btn:hover {
+    background-color: #514A4A;
+    color: black;
+}
+
+/* Menssagem */
+#error-msg {
+    color: red;
+    font-weight: bold;
+}
+
+#success-msg {
+    color: green;
+    font-weight: bold;
+}
+
+/* Dashboard */
+
+
+/* Footer */
+footer {
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    padding: 15px;
+    width: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .login-container {
+        width: 80%;
+        height: 70%;
+        margin-top: 2px;
+    }
+
+    footer {
+        position: relative;
+    }
 }
