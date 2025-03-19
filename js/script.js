@@ -2,12 +2,6 @@ function redirectToDashboard(type) {
     window.location.href = `dashboard.html?type=${type}`;
 }
 
-// Remover todos os erros antes de validar novamente
-function cleanErrors() {
-    document.querySelectorAll(".error-message").forEach(el => el.remove());
-}
-
-
 // Recuperar o usuário logado do localStorage
 const userLogged = JSON.parse(localStorage.getItem("userLogged"));
 
@@ -28,16 +22,19 @@ async function getUserData() {
 
 function showMsg(message, type) {
     let elementId = type === "error" ? "error-msg" : "success-msg";
-    const messageElement = document.getElementById(elementId);
+    const messageElement = document.createElement("p");
+    messageElement.className = elementId;
+    const msgContainer = document.getElementById("msg-container");
 
     if(messageElement) {
         messageElement.textContent = message;
-        messageElement.style.display = "block"; // Garantir que o bloco da mensagem seja visível
+        msgContainer.style.display = "block"; // Garantir que o bloco da mensagem seja visível
+        msgContainer.appendChild(messageElement);
 
         // Remover a mensagem após 3 segundos
         setTimeout(() => {
             messageElement.textContent = "";
-            messageElement.style.display = "none"; // Esconde o bloco da mensagem novamente
+            msgContainer.style.display = "none"; // Esconde o bloco da mensagem novamente
         }, 3000);
     }
 }

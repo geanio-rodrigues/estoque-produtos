@@ -20,8 +20,6 @@ async function validateUser(event) {
     // Impede o envio do formulário
     event.preventDefault();
 
-    cleanErrors();
-
     // Coletar os dados
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
@@ -34,6 +32,7 @@ async function validateUser(event) {
     if(user) {
         if (user.password === password) {
             localStorage.setItem("userLogged", JSON.stringify(user)); // Salva o usuário logado
+            localStorage.setItem("welcomeMessage", "true");
             window.location.href = "home.html";
         } else {
             showMsg("Usuário ou senha incorretos.", "error");
@@ -43,3 +42,10 @@ async function validateUser(event) {
     }
 }
 
+// Mensagem de boas vindas apenas na primeira vez
+document.addEventListener("DOMContentLoaded", () => {
+    if(window.location.pathname === "/home.html" && localStorage.getItem("welcomeMessage")) {
+        showMsg("Seja Bem-vindo!");
+        localStorage.removeItem("welcomeMessage");
+    }
+})

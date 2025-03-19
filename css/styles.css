@@ -168,14 +168,25 @@ main {
 }
 
 /* Menssagem */
-#error-msg {
-    color: red;
-    font-weight: bold;
+#msg-container {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
 }
 
-#success-msg {
-    color: green;
-    font-weight: bold;
+.error-msg {
+    color: #842029;
+    background-color: #f8d7da;
+    border-color: #f5c2c7;
+    font-size: 20px;
+}
+
+.success-msg {
+    color: #0f5132;
+    background-color: #d1e7dd;
+    border-color: #badbcc;
+    font-size: 22px;
+    padding: 20px;
 }
 
 /* Dashboard */
