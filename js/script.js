@@ -5,14 +5,21 @@ function redirectToDashboard(type) {
 // Recuperar o usuário logado do localStorage
 const userLogged = JSON.parse(localStorage.getItem("userLogged"));
 
+const users = JSON.parse(localStorage.getItem("users")) || [];
+const products = JSON.parse(localStorage.getItem("products")) || [];
+const suppliers = JSON.parse(localStorage.getItem("suppliers")) || [];
+
 async function getUserData() {
     try {
         const response = await fetch ("js/data.json");
         if(!response.ok) {
-            throw new Error("Erro ao carregar os dados do servidor.");
+            showMsg("Erro ao carregar os dados do servidor.", "error");
         }
         const data = await response.json();
-        return data;
+        localStorage.setItem("users", JSON.stringify(data.users));
+        localStorage.setItem("products", JSON.stringify(data.products));
+        localStorage.setItem("suppliers", JSON.stringify(data.suppliers));
+        return;
     } catch (error) {
         console.error("Erro ao obter dados:", error);
         showMsg(error.message, "error");

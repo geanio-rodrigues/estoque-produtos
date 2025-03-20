@@ -38,7 +38,7 @@ if (headerContainer.innerHTML === "") {
     username.id = "username";
     role.id = "role";
     if(userLogged) {
-        username.innerText = userLogged.username;
+        username.innerText = userLogged.fullname;
         role.innerText = userLogged.role;
     } else {
         username.innerText = "Usuário Desconhecido";
