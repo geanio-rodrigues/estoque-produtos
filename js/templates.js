@@ -4,6 +4,10 @@ const page = window.location.pathname.split("/").pop();
 // Barra de navegação
 const headerContainer = document.getElementById("header-container");
 
+// Guardando os parâmetro de tipo
+const params = new URLSearchParams(window.location.search);
+const type = params.get("type");
+
 if (headerContainer.innerHTML === "") {
     let navbar = document.createElement("nav");
     let navbarLeft = document.createElement("div");
@@ -47,7 +51,7 @@ if (headerContainer.innerHTML === "") {
     divider.className  = "divider";
     navbarRight.className = "navbar-right";
     logout.href = "#";
-    logout.onclick = () => {logoutSystem(event)};
+    logout.onclick = () => {logoutSystem()};
     logout.className = "logout";
     logout.innerText = "Sair ";
     iconLogout.className = "fas fa-power-off";
@@ -59,6 +63,7 @@ if (headerContainer.innerHTML === "") {
     home.className = "navbar-item";
     iconHome.className = "fas fa-home";
     register.href = "#";
+    register.onclick = () => {redirectToRegister(type)};
     register.className = "navbar-item";
     iconRegister.className = "fas fa-square-plus";
     search.href = "#";
@@ -136,8 +141,6 @@ if (page === "home.html") {
     // Página Dashboard
     const tableContainer = document.getElementById("header-table");
     const dataTable = document.getElementById("data-table");
-    const params = new URLSearchParams(window.location.search);
-    const type = params.get("type");
 
     let data = []; // Variável para armazenar os dados correspondentes
 
@@ -205,8 +208,8 @@ if (page === "home.html") {
                     <td scope="row">R$ ${item.purchase_price.toFixed(2)}</td>
                     <td class="actions">
                         <a href="#"><i class="fas fa-eye check-icon"></i></a>
-                        <a href="#"><i class="far fa-edit edit-icon"></i></a>
-                        <a href="#"><i class="fas fa-times delete-icon"></i></a>
+                        <a href="#"><i class="fas fa-edit edit-icon"></i></a>
+                        <a href="#"><i class="far fa-circle-xmark delete-icon"></i></a>
                     </td>
                 `;
             } else {
@@ -217,8 +220,8 @@ if (page === "home.html") {
                     <td scope="row">${item.email}</td>
                     <td class="actions">
                         <a href="#"><i class="fas fa-eye check-icon"></i></a>
-                        <a href="#"><i class="far fa-edit edit-icon"></i></a>
-                        <a href="#"><i class="fas fa-times delete-icon"></i></a>
+                        <a href="#"><i class="fas fa-edit edit-icon"></i></a>
+                        <a href="#"><i class="far fa-circle-xmark delete-icon"></i></a>
                     </td>
                 `;
             }
@@ -232,7 +235,13 @@ if (page === "home.html") {
 } else if (page === "register.html") {
 
     let teste = document.createElement("h1");
-    teste.innerText = "Página de Registro";
+    if(type === "products") {
+        teste.innerText = "Cadastro de produtos";
+    } else if(type === "users") {
+        teste.innerText = "Cadastro de usuários";
+    } else {
+        teste.innerText = "Cadastro de Fornecedores";
+    }
     mainContainer.appendChild(teste);
 
 }

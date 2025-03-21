@@ -17,7 +17,8 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    min-height: 65vh;
+    padding: 40px;
 }
 
 /* Login */
@@ -190,26 +191,56 @@ main {
 }
 
 /* Dashboard */
+.actions {
+    width: 100px; /* Ajuste conforme necessário */
+    white-space: nowrap; /* Impede a quebra de linha */
+}
 
+.actions a {
+    margin: 0 15px;
+}
+
+.actions i {
+    font-size: 20px;
+}
+
+.delete-icon {
+    color: #B3261E;
+}
+
+.check-icon {
+    color: #1E1E1E;
+}
+
+.edit-icon {
+    color: #322359;
+}
+
+/* Register */
+#back-link-container {
+    display: block;
+    width: 500px;
+    margin: 30px auto 0;
+}
+
+#back-link {
+    border: 1px solid black;
+    color: black;
+    border-radius: 4px;
+    padding: 5px;
+    text-decoration: none;
+}
+
+#back-link:hover {
+    background-color: black;
+    color: white;
+}
 
 /* Footer */
 footer {
-    position: absolute;
-    bottom: 0;
+    color: black;
     text-align: center;
-    padding: 15px;
-    width: 100%;
+    padding: 20px;
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
-    .login-container {
-        width: 80%;
-        height: 70%;
-        margin-top: 2px;
-    }
-
-    footer {
-        position: relative;
-    }
-}

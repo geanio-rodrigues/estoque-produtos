@@ -2,6 +2,10 @@ function redirectToDashboard(type) {
     window.location.href = `dashboard.html?type=${type}`;
 }
 
+function redirectToRegister(type) {
+    window.location.href = `register.html?type=${type}`;
+}
+
 // Recuperar o usuário logado do localStorage
 const userLogged = JSON.parse(localStorage.getItem("userLogged"));
 
@@ -47,7 +51,7 @@ function showMsg(message, type) {
     }
 }
 
-function logoutSystem(event) {
+function logoutSystem() {
     localStorage.removeItem("userLogged");
     localStorage.removeItem("users");
     localStorage.removeItem("products");
