@@ -48,5 +48,8 @@ function showMsg(message, type) {
 
 function logoutSystem(event) {
     localStorage.removeItem("userLogged");
+    localStorage.removeItem("users");
+    localStorage.removeItem("products");
+    localStorage.removeItem("suppliers");
     window.location.href = "index.html";
 }
