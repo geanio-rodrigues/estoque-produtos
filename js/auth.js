@@ -27,7 +27,7 @@ async function validateUser(event) {
     const data = await getUserData();
 
     // Verificar se o usuário existe
-    const user = users.find(user => user.username === username);
+    const user = data.users.find(user => user.username === username);
 
     if(user) {
         if (user.password === password) {

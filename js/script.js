@@ -19,7 +19,8 @@ async function getUserData() {
         localStorage.setItem("users", JSON.stringify(data.users));
         localStorage.setItem("products", JSON.stringify(data.products));
         localStorage.setItem("suppliers", JSON.stringify(data.suppliers));
-        return;
+
+        return data;
     } catch (error) {
         console.error("Erro ao obter dados:", error);
         showMsg(error.message, "error");
