@@ -117,13 +117,13 @@ if (page === "home.html") {
 
     menu.className = "menu-group";
     btnProduct.className = "btn btn-lg";
-    btnProduct.onclick = () => {redirectToDashboard('product')};
+    btnProduct.onclick = () => {redirectToDashboard('products')};
     btnProduct.innerText = "Produtos";
     btnUser.className = "btn btn-lg";
-    btnUser.onclick = () => {redirectToDashboard('user')};
+    btnUser.onclick = () => {redirectToDashboard('users')};
     btnUser.innerText = "Usuários";
     btnSupplier.className = "btn btn-lg";
-    btnSupplier.onclick = () => {redirectToDashboard('supplier')};
+    btnSupplier.onclick = () => {redirectToDashboard('suppliers')};
     btnSupplier.innerText = "Fornecedores";
 
     mainContainer.appendChild(menu);
@@ -135,16 +135,30 @@ if (page === "home.html") {
 
     // Página Dashboard
     const tableContainer = document.getElementById("header-table");
+    const dataTable = document.getElementById("data-table");
     const params = new URLSearchParams(window.location.search);
     const type = params.get("type");
+
+    let data = []; // Variável para armazenar os dados correspondentes
+
+    if (type === "products") {
+        data = products;
+    } else if (type === "users") {
+        data = users;
+    } else if (type === "suppliers") {
+        data = suppliers;
+    } else {
+        alert("Página não encontrada!");
+        window.history.back();
+    }
 
     if (tableContainer.innerHTML === "") {
 
         let row = document.createElement("tr");
 
-        if(type === "product") {
+        if(type === "products") {
             // Lista de colunas para o cabeçalho da tabela
-            const headers = ["#", "Nome", "Categoria", "Marca", "Quantidade", "Valor Venda", "Valor Compra"];
+            const headers = ["#", "Nome", "Categoria", "Marca", "Quantidade", "Valor Venda", "Valor Compra", ""];
 
             // Percorre os títulos e cria um <th> para cada um
             headers.forEach(text => {
@@ -156,11 +170,12 @@ if (page === "home.html") {
 
             tableContainer.appendChild(row);
 
-        } else if(type === "user" || type === "supplier") {
-            const headers = ["#", "Nome", "Telefone", "E-mail"];
+        } else if(type === "users" || type === "suppliers") {
+            const headers = ["#", "Nome", "Telefone", "E-mail", ""];
 
             headers.forEach(text => {
                 let th = document.createElement("th");
+                th.setAttribute("scope", "col");
                 th.innerText = text;
                 row.appendChild(th);
             });
@@ -171,6 +186,47 @@ if (page === "home.html") {
             alert("Página não encontrada!");
             window.history.back();
         }
+    }
+
+    if (data.length > 0) {
+        dataTable.innerHTML = ""; // Limpa o conteúdo anterior
+
+        data.forEach(item => {
+            let tr = document.createElement("tr");
+
+            if (type === "products") {
+                tr.innerHTML = `
+                    <td scope="row">${item.id}</td>
+                    <td scope="row">${item.name}</td>
+                    <td scope="row">${item.category}</td>
+                    <td scope="row">${item.brand}</td>
+                    <td scope="row">${item.quantity}</td>
+                    <td scope="row">R$ ${(item.purchase_price * 1.3).toFixed(2)}</td>
+                    <td scope="row">R$ ${item.purchase_price.toFixed(2)}</td>
+                    <td class="actions">
+                        <a href="#"><i class="fas fa-eye check-icon"></i></a>
+                        <a href="#"><i class="far fa-edit edit-icon"></i></a>
+                        <a href="#"><i class="fas fa-times delete-icon"></i></a>
+                    </td>
+                `;
+            } else {
+                tr.innerHTML = `
+                    <td scope="row">${item.id}</td>
+                    <td scope="row">${type === "users" ? item.fullname : item.name}</td>
+                    <td scope="row">${item.phone}</td>
+                    <td scope="row">${item.email}</td>
+                    <td class="actions">
+                        <a href="#"><i class="fas fa-eye check-icon"></i></a>
+                        <a href="#"><i class="far fa-edit edit-icon"></i></a>
+                        <a href="#"><i class="fas fa-times delete-icon"></i></a>
+                    </td>
+                `;
+            }
+
+            dataTable.appendChild(tr);
+        });
+    } else {
+        dataTable.innerHTML = "<tr><td colspan='5'>Nenhum dado disponível.</td></tr>";
     }
 
 } else if (page === "register.html") {
