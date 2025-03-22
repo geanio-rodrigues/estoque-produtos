@@ -1,9 +1,36 @@
+// Mensagem de boas vindas apenas na primeira vez
+document.addEventListener("DOMContentLoaded", () => {
+    if(window.location.pathname === "/home.html" && localStorage.getItem("welcomeMessage")) {
+        showMsg(localStorage.getItem("welcomeMessage"), localStorage.getItem("statusMsg"));
+        localStorage.removeItem("welcomeMessage");
+    }
+})
+
+// Garantir que as mensagens são exibidas mesmo após redirecionar páginas
+document.addEventListener("DOMContentLoaded", () => {
+    if(localStorage.getItem("msg")){
+        showMsg(localStorage.getItem("msg"), localStorage.getItem("statusMsg"));
+    }
+
+    localStorage.removeItem("msg");
+})
+
 function redirectToDashboard(type) {
     window.location.href = `dashboard.html?type=${type}`;
 }
 
 function redirectToRegister(type) {
     window.location.href = `register.html?type=${type}`;
+}
+
+function goBack() {
+    if(type) {
+        redirectToDashboard(type);
+    } else {
+        window.location.href = "home.html";
+        localStorage.setItem("msg", "Página não Encontrada");
+        localStorage.setItem("statusMsg", "error");
+    }
 }
 
 // Recuperar o usuário logado do localStorage
@@ -17,7 +44,8 @@ async function getUserData() {
     try {
         const response = await fetch ("js/data.json");
         if(!response.ok) {
-            showMsg("Erro ao carregar os dados do servidor.", "error");
+            localStorage.setItem("msg", "Erro ao carregar os dados do servidor");
+            localStorage.setItem("statusMsg", "error");
         }
         const data = await response.json();
         localStorage.setItem("users", JSON.stringify(data.users || []));
@@ -27,7 +55,8 @@ async function getUserData() {
         return data;
     } catch (error) {
         console.error("Erro ao obter dados:", error);
-        showMsg(error.message, "error");
+        localStorage.setItem("msg", error.message);
+        localStorage.setItem("statusMsg", "error");
         return null;
     }
 }

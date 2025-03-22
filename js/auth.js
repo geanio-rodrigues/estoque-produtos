@@ -1,11 +1,13 @@
-// Se o usuário estiver em outra página, o código não gera erro
-document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.getElementById("login-form");
-    
-    if (loginForm) {
-        loginForm.addEventListener("submit", validateUser);
-    }
-})
+// DOMContentLoaded - Se o usuário estiver em outra página, o código não gera erro
+
+
+// Evento de submit para página de login
+const loginForm = document.getElementById("login-form");
+
+if (loginForm) {
+    loginForm.addEventListener("submit", validateUser);
+}
+
 
 // Impedir que usuário acesse outras páginas sem estar logado
 document.addEventListener("DOMContentLoaded", () => {
@@ -32,7 +34,8 @@ async function validateUser(event) {
     if(user) {
         if (user.password === password) {
             localStorage.setItem("userLogged", JSON.stringify(user)); // Salva o usuário logado
-            localStorage.setItem("welcomeMessage", "true");
+            localStorage.setItem("welcomeMessage", "Seja Bem-vindo");
+            localStorage.setItem("statusMsg", "sucess");
             window.location.href = "home.html";
         } else {
             showMsg("Usuário ou senha incorretos.", "error");
@@ -42,10 +45,4 @@ async function validateUser(event) {
     }
 }
 
-// Mensagem de boas vindas apenas na primeira vez
-document.addEventListener("DOMContentLoaded", () => {
-    if(window.location.pathname === "/home.html" && localStorage.getItem("welcomeMessage")) {
-        showMsg("Seja Bem-vindo!");
-        localStorage.removeItem("welcomeMessage");
-    }
-})
+
