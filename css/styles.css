@@ -192,8 +192,8 @@ main {
 
 /* Dashboard */
 .actions {
-    width: 100px; /* Ajuste conforme necessário */
-    white-space: nowrap; /* Impede a quebra de linha */
+    width: 100px; 
+    white-space: nowrap; 
 }
 
 .actions a {
@@ -219,10 +219,10 @@ main {
 /* Register */
 #dynamic-form {
     display: flex;
-    flex-wrap: wrap; /* Permite que os itens se ajustem conforme o tamanho da tela */
-    gap: 10px; /* Espaço entre os campos */
-    max-width: 1000px; /* Define uma largura máxima */
-    margin: auto; /* Centraliza o formulário */
+    flex-wrap: wrap; 
+    gap: 10px; 
+    max-width: 1000px;
+    margin: auto; 
 }
 
 #dynamic-form h2 {
@@ -236,11 +236,11 @@ main {
 #dynamic-form button {
     width: 70%; 
     display: block;
-    margin: 30px auto; /* Centraliza o botão horizontalmente */
+    margin: 30px auto; 
 }
 
 .form-group {
-    width: calc(50% - 10px); /* Divide os campos em duas colunas */
+    width: calc(50% - 10px); 
     display: flex;
     flex-direction: column;
 }
