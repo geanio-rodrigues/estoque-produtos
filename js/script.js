@@ -58,3 +58,68 @@ function logoutSystem() {
     localStorage.removeItem("suppliers");
     window.location.href = "index.html";
 }
+
+// Funções para ajudar a criar os formulários no register.html
+function createInput(labelText, name, type, placeholder) {
+    let div = document.createElement("div");
+    div.className = "form-group";
+
+    let label = document.createElement("label");
+    label.innerText = labelText;
+    label.setAttribute("for", name);
+
+    let input = document.createElement("input");
+    input.type = type;
+    input.name = name;
+    input.id = name;
+    input.placeholder = placeholder;
+    input.className = "form-control";
+
+    div.appendChild(label);
+    div.appendChild(input);
+    return div;
+}
+
+function createTextArea(labelText, name, placeholder = "") {
+    let div = document.createElement("div");
+    div.className = "form-group";
+
+    let label = document.createElement("label");
+    label.innerText = labelText;
+    label.setAttribute("for", name);
+
+    let textArea = document.createElement("textarea");
+    textArea.name = name;
+    textArea.id = name;
+    textArea.placeholder = placeholder;
+    textArea.className = "form-control";
+
+    div.appendChild(label);
+    div.appendChild(textArea);
+    return div;
+}
+
+function createSelect(labelText, name, options) {
+    let div = document.createElement("div");
+    div.className = "form-group";
+
+    let label = document.createElement("label");
+    label.innerText = labelText;
+    label.setAttribute("for", name);
+
+    let select = document.createElement("select");
+    select.name = name;
+    select.id = name;
+    select.className = "form-control";
+
+    options.forEach(optionText => {
+        let option = document.createElement("option");
+        option.value = optionText;
+        option.innerText = optionText;
+        select.appendChild(option);
+    });
+
+    div.appendChild(label);
+    div.appendChild(select);
+    return div;
+}

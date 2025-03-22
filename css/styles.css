@@ -217,9 +217,37 @@ main {
 }
 
 /* Register */
+#dynamic-form {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens se ajustem conforme o tamanho da tela */
+    gap: 10px; /* Espaço entre os campos */
+    max-width: 1000px; /* Define uma largura máxima */
+    margin: auto; /* Centraliza o formulário */
+}
+
+#dynamic-form h2 {
+    min-width: 100%;
+    text-align: center;
+    padding: 0 0 30px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+#dynamic-form button {
+    width: 70%; 
+    display: block;
+    margin: 30px auto; /* Centraliza o botão horizontalmente */
+}
+
+.form-group {
+    width: calc(50% - 10px); /* Divide os campos em duas colunas */
+    display: flex;
+    flex-direction: column;
+}
+
 #back-link-container {
     display: block;
-    width: 500px;
+    width: 1000px;
     margin: 30px auto 0;
 }
 

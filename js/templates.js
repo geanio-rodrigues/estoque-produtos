@@ -234,15 +234,78 @@ if (page === "home.html") {
 
 } else if (page === "register.html") {
 
-    let teste = document.createElement("h1");
+    let formContainer = document.getElementById("form-container");
+    let title = document.createElement("h2");
+    let form = document.createElement("form");
+    form.id = "dynamic-form";
+
     if(type === "products") {
-        teste.innerText = "Cadastro de produtos";
+        title.innerText = "Novo Produto";
+        form.appendChild(title);
+
+        form.appendChild(createInput("Nome:", "name", "text", "Informe o nome do Produto"));
+        form.appendChild(createInput("Categoria:", "category", "text", "Informe a categoria do produto"));
+        form.appendChild(createInput("Marca:", "brand", "text", "Informe a marca do produto"));
+        form.appendChild(createInput("Quantidade:", "quantity", "number", "Informe a quantidade atual em estoque"));
+        form.appendChild(createInput("Valor de Compra:", "purchase_price", "number", "Informe o valor de compra"));
+
+        // Resgatando o nome dos fornecedores
+        let supplierNames = suppliers.map(supplier => supplier.name);
+        form.appendChild(createSelect("Fornecedor:", "supplier", supplierNames));
+
+        form.appendChild(createTextArea("Observações:", "notes", "Insira informações adicionais sobre o produto..."));
+
     } else if(type === "users") {
-        teste.innerText = "Cadastro de usuários";
+        title.innerText = "Novo Usuário";
+        form.appendChild(title);
+
+        let fullName = createInput("Nome Completo:", "fullname", "text", "Informe o nome completo do usuário");
+        let username = createInput("Nome de Usuário:", "username", "text", "Gerado automaticamente");
+
+        // Nome de usuário gerado automáticamente
+        let usernameInput = username.querySelector("input"); 
+        if(usernameInput) {
+            usernameInput.readOnly = true;
+        }
+
+        // Atualiza o campo de nome de usuário com base no nome completo
+        fullName.querySelector("input").addEventListener("input", function () {
+            let names = this.value.trim().split(" "); 
+            if(names.length > 1) {
+                let first = names[0].toLowerCase();
+                let last = names[names.length - 1].toLowerCase();
+                username.querySelector("input").value = `${first}${last}`;
+            }
+        });
+
+        form.appendChild(fullName);
+        form.appendChild(username);
+        form.appendChild(createInput("Telefone:", "phone", "tel", "Informe o telefone com DDD. Ex: 88999998888"));
+        form.appendChild(createInput("E-mail:", "email", "email", "Informe o e-mail"));
+        form.appendChild(createInput("Senha:", "password", "password", "Informe sua senha"));
+        form.appendChild(createInput("Confirme a Senha:", "confirm_password", "password", "Confirme sua senha"));
+        form.appendChild(createInput("Cargo/Função:", "role", "text", "Informe o cargo/função do usuário"));
+        form.appendChild(createTextArea("Observações:", "notes", "Insira informações adicionais sobre o usuário..."));
+
+
     } else {
-        teste.innerText = "Cadastro de Fornecedores";
+        title.innerText = "Novo Fornecedor";
+        form.appendChild(title);
+
+        form.appendChild(createInput("Nome:", "name", "text", "Informe o nome do Fornecedor"));
+        form.appendChild(createInput("Telefone:", "phone", "tel", "Informe o telefone com DDD. Ex: 8899998888"));
+        form.appendChild(createInput("E-mail:", "email", "email", "Informe o email do Fornecedor"));
+        form.appendChild(createTextArea("Observações:", "notes", "Insira informações adicionais sobre o fornecedor..."))
     }
-    mainContainer.appendChild(teste);
+    
+
+    let submitButton = document.createElement("button");
+    submitButton.type = "submit";
+    submitButton.className = "btn btn-primary";
+    submitButton.innerText = "Cadastrar";
+
+    form.appendChild(submitButton);
+    formContainer.appendChild(form);
 
 }
 
