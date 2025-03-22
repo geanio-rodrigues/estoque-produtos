@@ -1,9 +1,13 @@
 // DOMContentLoaded - Se o usuário estiver em outra página, o código não gera erro
-
+document.addEventListener("DOMContentLoaded", function () {
+    const registerForm = document.getElementById("dynamic-form");
+    if(registerForm){
+        registerForm.addEventListener("submit", validadeForm);
+    }
+});
 
 // Evento de submit para página de login
 const loginForm = document.getElementById("login-form");
-
 if (loginForm) {
     loginForm.addEventListener("submit", validateUser);
 }
@@ -45,4 +49,7 @@ async function validateUser(event) {
     }
 }
 
-
+async function validadeForm(event) {
+    event.preventDefault();
+    goBack();
+}
