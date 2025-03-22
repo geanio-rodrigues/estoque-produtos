@@ -20,9 +20,9 @@ async function getUserData() {
             showMsg("Erro ao carregar os dados do servidor.", "error");
         }
         const data = await response.json();
-        localStorage.setItem("users", JSON.stringify(data.users));
-        localStorage.setItem("products", JSON.stringify(data.products));
-        localStorage.setItem("suppliers", JSON.stringify(data.suppliers));
+        localStorage.setItem("users", JSON.stringify(data.users || []));
+        localStorage.setItem("products", JSON.stringify(data.products || []));
+        localStorage.setItem("suppliers", JSON.stringify(data.suppliers || []));
 
         return data;
     } catch (error) {

@@ -239,7 +239,7 @@ main {
     margin: 30px auto; 
 }
 
-.form-group {
+#dynamic-form .form-group {
     width: calc(50% - 10px); 
     display: flex;
     flex-direction: column;
