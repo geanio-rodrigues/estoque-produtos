@@ -2,7 +2,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const registerForm = document.getElementById("dynamic-form");
     if(registerForm){
-        registerForm.addEventListener("submit", validadeForm);
+        registerForm.addEventListener("submit", validateForm);
     }
 });
 
@@ -49,44 +49,67 @@ async function validateUser(event) {
     }
 }
 
-async function validadeForm(event) {
+async function validateForm(event) {
     event.preventDefault();
-    
-    if(type === "products") {
-        const productData = {
-            name: document.getElementById("name"),
-            category: document.getElementById("category"),
-            brand: document.getElementById("brand"),
-            quantity: document.getElementById("quantity"),
-            purchase_price: document.getElementById("purchase_price"),
-            supplier: document.getElementById("supplier"),
-            notes: document.getElementById("notes")
+    let success = false;
+    let dataToSend = {};
+
+    if (type === "products") {
+        dataToSend = {
+            type: "products",
+            name: document.getElementById("name").value,
+            category: document.getElementById("category").value,
+            brand: document.getElementById("brand").value,
+            quantity: document.getElementById("quantity").value,
+            purchase_price: document.getElementById("purchase_price").value,
+            supplier: document.getElementById("supplier").value,
+            notes: document.getElementById("notes").value
+        };
+        success = true;
+    } else if (type === "users") {
+        dataToSend = {
+            type: "users",
+            fullname: document.getElementById("fullname").value,
+            username: document.getElementById("username").value,
+            phone: document.getElementById("phone").value,
+            email: document.getElementById("email").value,
+            password: document.getElementById("password").value,
+            confirm_password: document.getElementById("confirm_password").value,
+            role: document.getElementById("role").value,
+            notes: document.getElementById("notes").value
+        };
+        success = true;
+    } else if (type === "suppliers") {
+        dataToSend = {
+            type: "suppliers",
+            name: document.getElementById("name").value,
+            phone: document.getElementById("phone").value,
+            email: document.getElementById("email").value,
+            notes: document.getElementById("notes").value
+        };
+        success = true;
+    }
+
+    if (success) {
+        try {
+            const response = await fetch("http://127.0.0.1:5000/add", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(dataToSend)
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                localStorage.setItem("msg", "Dados cadastrados com sucesso!");
+                localStorage.setItem("statusMsg", "success");
+                redirectToDashboard(type);
+            } else {
+                showMsg(result.message || "Erro ao cadastrar os dados!", "error");
+            }
+        } catch (error) {
+            console.error("Erro ao salvar os dados:", error);
+            showMsg("Erro ao conectar com o servidor!", "error");
         }
-
-        redirectToDashboard(type);
-
-    } else if(type === "users") {
-        const userData = {
-            fullname: document.getElementById("fullname"),
-            username: document.getElementById("username"),
-            phone: document.getElementById("phone"),
-            email: document.getElementById("email"),
-            password: document.getElementById("password"),
-            confirm_passord: document.getElementById("confirm_password"),
-            role: document.getElementById("role"),
-            notes: document.getElementById("notes")
-        }
-
-        redirectToDashboard(type);
-
-    } else if(type === "suppliers") {
-        const supplierData = {
-            name: document.getElementById("name"),
-            phone: document.getElementById("phone"),
-            email: document.getElementById("email"),
-            notes: document.getElementById("notes")
-        }
-
-        redirectToDashboard(type);
     }
 }

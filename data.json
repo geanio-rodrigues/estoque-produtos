@@ -1,0 +1,12 @@
+{
+    "users": [],
+    "products": [],
+    "suppliers": [
+        {
+            "name": "Teste",
+            "phone": "2188882020",
+            "email": "teste@create.com",
+            "notes": "teste"
+        }
+    ]
+}

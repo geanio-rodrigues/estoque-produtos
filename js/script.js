@@ -54,29 +54,29 @@ async function getUserData() {
 
         return data;
     } catch (error) {
-        console.error("Erro ao obter dados:", error);
         localStorage.setItem("msg", error.message);
         localStorage.setItem("statusMsg", "error");
         return null;
     }
 }
 
-function showMsg(message, type) {
-    let elementId = type === "error" ? "error-msg" : "success-msg";
-    const messageElement = document.createElement("p");
-    messageElement.className = elementId;
-    const msgContainer = document.getElementById("msg-container");
+function showMsg(message, status) {
+    let elementId = status === "error" ? "error-msg" : "success-msg";
+    const msgContainer = document.getElementById(elementId);
 
-    if(messageElement) {
+    if(msgContainer) {
+        msgContainer.innerHTML = "";
+
+        const messageElement = document.createElement("p");
+        messageElement.className = elementId;
         messageElement.textContent = message;
         msgContainer.style.display = "block"; // Garantir que o bloco da mensagem seja visível
         msgContainer.appendChild(messageElement);
 
-        // Remover a mensagem após 3 segundos
+        // Remover a mensagem após 2 segundos
         setTimeout(() => {
-            messageElement.textContent = "";
             msgContainer.style.display = "none"; // Esconde o bloco da mensagem novamente
-        }, 3000);
+        }, 2000);
     }
 }
 

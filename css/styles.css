@@ -169,7 +169,8 @@ main {
 }
 
 /* Menssagem */
-#msg-container {
+.error-msg,
+.success-msg {
     width: 100%;
     margin: 0 auto;
     text-align: center;
@@ -179,7 +180,8 @@ main {
     color: #842029;
     background-color: #f8d7da;
     border-color: #f5c2c7;
-    font-size: 20px;
+    font-size: 22px;
+    padding: 20px;
 }
 
 .success-msg {
