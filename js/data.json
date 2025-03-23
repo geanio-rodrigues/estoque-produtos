@@ -1,103 +1,116 @@
 {
     "users": [
-        { "id": 1,
-        "fullname": "Fulano de Tal Silva",
-        "username": "fulanosilva",
-        "password": "fulano1234",
-        "email": "fulano@email.com",
-        "phone": 88999998888,
-        "role": "Supervisor",
-        "notes": "Supervisiona o cadastro de produtos novos." },
-
-        { "id": 2,
-        "fullname": "Ciclano Pereira",
-        "username": "ciclanopereira",
-        "password": "ciclano5678",
-        "email": "ciclano@email.com",
-        "phone": 88998112233,
-        "role": "Gerente",
-        "notes": "Responsável pela administração geral do estoque." },
-
-        { "id": 3,
-        "fullname": "Maria Souza",
-        "username": "mariasouza",
-        "password": "maria4321",
-        "email": "maria@email.com",
-        "phone": 88997775544,
-        "role": "Atendente",
-        "notes": "Atende pedidos e auxilia na organização do estoque." },
-
-        { "id": 4,
-        "fullname": "João Oliveira",
-        "username": "joaooliveira",
-        "password": "joao9876",
-        "email": "joao@email.com",
-        "phone": 88996543210,
-        "role": "Estoquista",
-        "notes": "Controla a entrada e saída de mercadorias." }
+        {
+            "id": 1,
+            "fullname": "Fulano de Tal Silva",
+            "username": "fulanosilva",
+            "password": "fulano1234",
+            "email": "fulano@email.com",
+            "phone": 88999998888,
+            "role": "Supervisor",
+            "notes": "Supervisiona o cadastro de produtos novos."
+        },
+        {
+            "id": 2,
+            "fullname": "Ciclano Pereira",
+            "username": "ciclanopereira",
+            "password": "ciclano5678",
+            "email": "ciclano@email.com",
+            "phone": 88998112233,
+            "role": "Gerente",
+            "notes": "Responsável pela administração geral do estoque."
+        },
+        {
+            "id": 3,
+            "fullname": "Maria Souza",
+            "username": "mariasouza",
+            "password": "maria4321",
+            "email": "maria@email.com",
+            "phone": 88997775544,
+            "role": "Atendente",
+            "notes": "Atende pedidos e auxilia na organização do estoque."
+        },
+        {
+            "id": 4,
+            "fullname": "João Oliveira",
+            "username": "joaooliveira",
+            "password": "joao9876",
+            "email": "joao@email.com",
+            "phone": 88996543210,
+            "role": "Estoquista",
+            "notes": "Controla a entrada e saída de mercadorias."
+        }
     ],
-
     "products": [
-        { "id": 1,
-        "name": "Pão de Forma",
-        "category": "Padaria",
-        "brand": "Bauducco",
-        "quantity": 8,
-        "purchase_price": 9.00,
-        "supplier_id": 1,
-        "notes": "Pão de forma sabor tradicional, 390g" },
-
-        { "id": 2,
-        "name": "Leite Integral",
-        "category": "Laticínios",
-        "brand": "Italac",
-        "quantity": 15,
-        "purchase_price": 4.50,
-        "supplier_id": 2,
-        "notes": "Leite integral longa vida, 1L" },
-
-        { "id": 3,
-        "name": "Arroz Branco",
-        "category": "Mercearia",
-        "brand": "Tio João",
-        "quantity": 20,
-        "purchase_price": 25.00,
-        "supplier_id": 3,
-        "notes": "Arroz branco tipo 1, pacote de 5kg" },
-
-        { "id": 4,
-        "name": "Óleo de Soja",
-        "category": "Mercearia",
-        "brand": "Soya",
-        "quantity": 12,
-        "purchase_price": 7.80,
-        "supplier_id": 2,
-        "notes": "Óleo de soja refinado, garrafa de 900ml" }
+        {
+            "id": 1,
+            "name": "Pão de Forma",
+            "category": "Padaria",
+            "brand": "Bauducco",
+            "quantity": 8,
+            "purchase_price": 9.0,
+            "supplier_id": 1,
+            "notes": "Pão de forma sabor tradicional, 390g"
+        },
+        {
+            "id": 2,
+            "name": "Leite Integral",
+            "category": "Laticínios",
+            "brand": "Italac",
+            "quantity": 15,
+            "purchase_price": 4.5,
+            "supplier_id": 2,
+            "notes": "Leite integral longa vida, 1L"
+        },
+        {
+            "id": 3,
+            "name": "Arroz Branco",
+            "category": "Mercearia",
+            "brand": "Tio João",
+            "quantity": 20,
+            "purchase_price": 25.0,
+            "supplier_id": 3,
+            "notes": "Arroz branco tipo 1, pacote de 5kg"
+        },
+        {
+            "id": 4,
+            "name": "Óleo de Soja",
+            "category": "Mercearia",
+            "brand": "Soya",
+            "quantity": 12,
+            "purchase_price": 7.8,
+            "supplier_id": 2,
+            "notes": "Óleo de soja refinado, garrafa de 900ml"
+        }
     ],
-
     "suppliers": [
-        { "id": 1,
-        "name": "Fornecedor 1",
-        "email": "fornecedor1@email.com",
-        "phone": 889884588888,
-        "notes": "Fornecedor de produtos de padaria, tem o melhor preço atualmente" },
-
-        { "id": 2,
-        "name": "Fornecedor 2",
-        "email": "fornecedor2@email.com",
-        "phone": 88987654321,
-        "notes": "Fornecedor especializado em laticínios e óleos vegetais." },
-
-        { "id": 3,
-        "name": "Fornecedor 3",
-        "email": "fornecedor3@email.com",
-        "phone": 88981234567,
-        "notes": "Distribuidor de grãos e cereais, entrega rápida e confiável." },
-
-        { "id": 4,
-        "name": "Fornecedor 4",
-        "email": "fornecedor4@email.com",
-        "phone": 88989990000,
-        "notes": "Fornece diversos tipos de alimentos secos e enlatados." }
+        {
+            "id": 1,
+            "name": "Fornecedor 1",
+            "email": "fornecedor1@email.com",
+            "phone": 889884588888,
+            "notes": "Fornecedor de produtos de padaria, tem o melhor preço atualmente"
+        },
+        {
+            "id": 2,
+            "name": "Fornecedor 2",
+            "email": "fornecedor2@email.com",
+            "phone": 88987654321,
+            "notes": "Fornecedor especializado em laticínios e óleos vegetais."
+        },
+        {
+            "id": 3,
+            "name": "Fornecedor 3",
+            "email": "fornecedor3@email.com",
+            "phone": 88981234567,
+            "notes": "Distribuidor de grãos e cereais, entrega rápida e confiável."
+        },
+        {
+            "id": 4,
+            "name": "Fornecedor 4",
+            "email": "fornecedor4@email.com",
+            "phone": 88989990000,
+            "notes": "Fornece diversos tipos de alimentos secos e enlatados."
+        }
     ]
 }

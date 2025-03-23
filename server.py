@@ -5,7 +5,7 @@ import json
 app = Flask(__name__)
 CORS(app)
 
-DATA_FILE = "data.json"
+DATA_FILE = "js/data.json"
 
 # Função para carregar os dados do JSON
 def load_data():
