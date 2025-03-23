@@ -51,5 +51,42 @@ async function validateUser(event) {
 
 async function validadeForm(event) {
     event.preventDefault();
-    goBack();
+    
+    if(type === "products") {
+        const productData = {
+            name: document.getElementById("name"),
+            category: document.getElementById("category"),
+            brand: document.getElementById("brand"),
+            quantity: document.getElementById("quantity"),
+            purchase_price: document.getElementById("purchase_price"),
+            supplier: document.getElementById("supplier"),
+            notes: document.getElementById("notes")
+        }
+
+        redirectToDashboard(type);
+
+    } else if(type === "users") {
+        const userData = {
+            fullname: document.getElementById("fullname"),
+            username: document.getElementById("username"),
+            phone: document.getElementById("phone"),
+            email: document.getElementById("email"),
+            password: document.getElementById("password"),
+            confirm_passord: document.getElementById("confirm_password"),
+            role: document.getElementById("role"),
+            notes: document.getElementById("notes")
+        }
+
+        redirectToDashboard(type);
+
+    } else if(type === "suppliers") {
+        const supplierData = {
+            name: document.getElementById("name"),
+            phone: document.getElementById("phone"),
+            email: document.getElementById("email"),
+            notes: document.getElementById("notes")
+        }
+
+        redirectToDashboard(type);
+    }
 }
