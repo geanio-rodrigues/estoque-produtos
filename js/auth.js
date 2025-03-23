@@ -71,10 +71,10 @@ async function validateForm(event) {
             type: "users",
             fullname: document.getElementById("fullname").value,
             username: document.getElementById("username").value,
-            phone: document.getElementById("phone").value,
-            email: document.getElementById("email").value,
             password: document.getElementById("password").value,
             confirm_password: document.getElementById("confirm_password").value,
+            email: document.getElementById("email").value,
+            phone: document.getElementById("phone").value,
             role: document.getElementById("role").value,
             notes: document.getElementById("notes").value
         };
@@ -83,8 +83,8 @@ async function validateForm(event) {
         dataToSend = {
             type: "suppliers",
             name: document.getElementById("name").value,
-            phone: document.getElementById("phone").value,
             email: document.getElementById("email").value,
+            phone: document.getElementById("phone").value,
             notes: document.getElementById("notes").value
         };
         success = true;
