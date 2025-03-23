@@ -274,3 +274,113 @@ footer {
 }
 
 /* Responsividade */
+@media (max-width: 768px) {
+    /* Ajustes gerais */
+    body {
+        padding: 0;
+    }
+
+    main {
+        padding: 20px;
+        min-height: 50vh;
+    }
+
+    /* Login */
+    .login-container {
+        width: 90%; /* Reduz a largura do container */
+        height: auto; /* Altura automática para se ajustar ao conteúdo */
+        margin-top: 40px;
+        padding: 20px;
+    }
+
+    .login-container h2 {
+        font-size: 30px; /* Reduz o tamanho da fonte */
+        padding: 0 0 30px;
+    }
+
+    .btn.btn-primary {
+        width: 100%; /* Botão ocupa toda a largura */
+        font-size: 20px;
+        margin-top: 30px;
+    }
+
+    /* Navbar */
+    .navbar {
+        height: auto;
+        flex-direction: column;
+        padding: 10px 0;
+    }
+
+    .navbar-left,
+    .navbar-center {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .navbar-center {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .navbar-center a {
+        font-size: 18px;
+    }
+
+    .divider {
+        display: none; /* Oculta o divisor */
+    }
+
+    /* Menu */
+    .menu-group {
+        padding: 20px;
+    }
+
+    .menu-group .btn {
+        width: 100%; /* Botões ocupam toda a largura */
+        height: 50px;
+        font-size: 18px;
+    }
+
+    /* Mensagens */
+    .error-msg,
+    .success-msg {
+        font-size: 18px;
+        padding: 10px;
+    }
+
+    /* Dashboard */
+    .actions {
+        width: auto;
+    }
+
+    .actions a {
+        margin: 0 5px;
+    }
+
+    .actions i {
+        font-size: 16px;
+    }
+
+    /* Register */
+    #dynamic-form {
+        width: 90%;
+    }
+
+    #dynamic-form .form-group {
+        width: 100%; /* Campos ocupam toda a largura */
+    }
+
+    #dynamic-form h2 {
+        font-size: 30px;
+    }
+
+    #back-link-container {
+        width: 90%;
+    }
+
+    /* Footer */
+    footer {
+        padding: 10px;
+    }
+}

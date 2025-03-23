@@ -104,6 +104,11 @@ function createInput(labelText, name, type, placeholder) {
     input.placeholder = placeholder;
     input.className = "form-control";
 
+    // Adicionando campo para ponto flutuante no preço
+    if(name === "purchase_price") {
+        input.step = "0.01";
+    }
+
     div.appendChild(label);
     div.appendChild(input);
     return div;
