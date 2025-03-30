@@ -52,7 +52,7 @@ async function validateUser(event) {
 async function validateForm(event) {
     event.preventDefault();
     let success = false;
-    let dataToSend = {};
+    let dataToSend = [];
 
     if (type === "products") {
         dataToSend = {
@@ -65,7 +65,13 @@ async function validateForm(event) {
             supplier: document.getElementById("supplier").value,
             notes: document.getElementById("notes").value
         };
-        success = true;
+        
+        if(dataToSend.name === "" || dataToSend.category === "" || dataToSend.brand === "" || dataToSend.quantity === "" || dataToSend.purchase_price === "" || dataToSend.supplier === "") {
+            showMsg("Por favor preencha todos os campos!");
+        }else {
+            success = true;
+        }
+
     } else if (type === "users") {
         dataToSend = {
             type: "users",
@@ -78,7 +84,14 @@ async function validateForm(event) {
             role: document.getElementById("role").value,
             notes: document.getElementById("notes").value
         };
-        success = true;
+
+        if(dataToSend.fullname === "" || dataToSend.email === "" || dataToSend.phone === "" || dataToSend.roles === "" || dataToSend.password === "" || dataToSend.confirm_password === "") {
+            showMsg("Por favor preencha todos os campos!");
+        }else if(dataToSend.password !== dataToSend.confirm_password){
+            showMsg("As senhas devem ser iguais!", "error");
+        } else {
+            success = true;
+        }
     } else if (type === "suppliers") {
         dataToSend = {
             type: "suppliers",
@@ -87,7 +100,13 @@ async function validateForm(event) {
             phone: document.getElementById("phone").value,
             notes: document.getElementById("notes").value
         };
-        success = true;
+        
+        if(dataToSend.name === "" || dataToSend.email === "" || dataToSend.phone === "" || dataToSend.notes === "") {
+            success = false;
+            showMsg("Por favor preencha todos os campos!");
+        }else {
+            success = true;
+        }
     }
 
     if (success) {
