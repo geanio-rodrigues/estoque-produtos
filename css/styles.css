@@ -193,6 +193,10 @@ main {
 }
 
 /* Dashboard */
+.table-responsive {
+    width: 100%;
+}
+
 .actions {
     width: 100px; 
     white-space: nowrap; 
@@ -351,18 +355,15 @@ footer {
     }
 
     /* Dashboard */
-    .table-responsive {
+    .table {
+        font-size: 14px;
         overflow-x: auto;
         max-width: 100%;
     }
 
-    .table {
-        font-size: 14px;
-    }
-
     th, td {
         padding: 5px;
-        white-space: nowrap; /*Impedir que o texto quebre em várias linhas */
+        white-space: nowrap;
     }
 
     .actions {
