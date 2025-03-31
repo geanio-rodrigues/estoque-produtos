@@ -351,6 +351,20 @@ footer {
     }
 
     /* Dashboard */
+    .table-responsive {
+        overflow-x: auto;
+        max-width: 100%;
+    }
+
+    .table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 5px;
+        white-space: nowrap; /*Impedir que o texto quebre em várias linhas */
+    }
+
     .actions {
         width: auto;
     }
