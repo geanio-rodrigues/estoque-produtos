@@ -104,7 +104,11 @@ main {
     color: white;
 }
 
-#role {
+.navbar-left li {
+    text-align: center;
+}
+
+.navbar-brand #role {
     font-size: 12px;
 }
 
