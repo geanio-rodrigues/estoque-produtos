@@ -1,0 +1,17 @@
+{
+  "name": "estoque-produtos",
+  "version": "1.0.0",
+  "description": "Projeto de controle de estoque com CI/CD",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "test": "jest",
+    "build": "echo \"Nenhum passo de build configurado ainda. Adicione o seu comando aqui.\""
+  },
+  "author": "Time #7",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "jest": "^29.7.0"
+  }
+}
