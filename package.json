@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "test": "jest",
-    "build": "echo \"Nenhum passo de build configurado ainda. Adicione o seu comando aqui.\""
+    "test": "jest"
   },
   "author": "Time #7",
   "license": "MIT",
