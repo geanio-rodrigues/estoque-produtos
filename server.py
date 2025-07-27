@@ -39,7 +39,7 @@ def add_data():
         return jsonify({"message": "Tipo de dado não informado"}), 400
 
     new_type = new_entry["type"]
-    new_entry.pop("type", None)  # Remove o campo "type" antes de salvar no JSON
+    new_entry.pop("type", None)  # Remove o campo "type" antes de salvar
 
     # Adiciona ID automático e garante que phone seja um número
     if new_type == "users":
