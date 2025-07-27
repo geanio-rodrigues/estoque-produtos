@@ -58,7 +58,9 @@ def add_data():
         return jsonify({"message": "Tipo inválido"}), 400
 
     save_data(data)  # Salva no arquivo data.json
-    return jsonify({"message": "Dados cadastrados com sucesso!", "data": new_entry}), 201
+    return jsonify(
+        {"message": "Dados cadastrados com sucesso!", "data": new_entry}
+    ), 201
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
